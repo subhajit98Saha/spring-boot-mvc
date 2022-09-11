@@ -1,0 +1,43 @@
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Student Registration Form</title>
+	<style>
+		.error{color:red}
+	</style>
+</head>
+
+<body>
+	<form:form action="processForm" modelAttribute="student">
+	
+	First name: <form:input path="firstName"/>
+	
+	<br><br>
+	
+	Last name: <form:input path="lastName"/>
+	
+	<br><br>
+	Country: 
+		<form:select path="country">
+			<form:options items="${theCountryOptions}"/>
+		</form:select>
+	<br><br>
+		Favourite Language:
+		Java <form:radiobutton path="favoriteLanguage" value="Java"/>
+		C# <form:radiobutton path="favoriteLanguage" value="C#"/>
+		C++ <form:radiobutton path="favoriteLanguage" value="C++"/>
+		Python <form:radiobutton path="favoriteLanguage" value="Python"/>
+		JavaScript <form:radiobutton path="favoriteLanguage" value="JavaScript"/>
+	<br><br>
+	Choose Operating System:
+		Linux<form:checkbox path="operatingSystem" value="linux"/>
+		Windows<form:checkbox path="operatingSystem" value="windows"/>
+		Mac<form:checkbox path="operatingSystem" value="mac"/>
+	<br><br>
+	<input type="submit" value="Submit"/>
+	</form:form>
+</body>
+
+</html>
